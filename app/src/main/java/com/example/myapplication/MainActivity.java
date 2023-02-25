@@ -9,19 +9,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    EditText editTextNum1;
+    EditText editTextNum2;
+    TextView textViewRs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        editTextNum1 = findViewById(R.id.activity_main__editTextNum1);
+        editTextNum2 = findViewById(R.id.activity_main__editTextNum2);
+        textViewRs = findViewById(R.id.activity_main__textViewRs);
     }
 
     public void btnAddClicked(View view) {
-        EditText editTextNum1 = findViewById(R.id.activity_main__editTextNum1);
-        EditText editTextNum2 = findViewById(R.id.activity_main__editTextNum2);
-        TextView textViewRs = findViewById(R.id.activity_main__textViewRs);
-
-
         // 혹시나 있을지 모를 양옆의 공백제거
         editTextNum1.setText(editTextNum1.getText().toString().trim());
 
@@ -48,11 +50,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnMinusClicked(View view) {
-        EditText editTextNum1 = findViewById(R.id.activity_main__editTextNum1);
-        EditText editTextNum2 = findViewById(R.id.activity_main__editTextNum2);
-        TextView textViewRs = findViewById(R.id.activity_main__textViewRs);
-
-
         // 혹시나 있을지 모를 양옆의 공백제거
         editTextNum1.setText(editTextNum1.getText().toString().trim());
 
@@ -78,10 +75,6 @@ public class MainActivity extends AppCompatActivity {
         textViewRs.setText("결과 : " + rs);
     }
 
-    void toastMsg(String msg) {
-        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
-    }
-
     public void btnClearClicked(View view) {
         EditText editTextNum1 = findViewById(R.id.activity_main__editTextNum1);
         EditText editTextNum2 = findViewById(R.id.activity_main__editTextNum2);
@@ -89,6 +82,10 @@ public class MainActivity extends AppCompatActivity {
 
         editTextNum1.setText("");
         editTextNum2.setText("");
-        textViewRs.setText("");
+        textViewRs.setText("결과");
+    }
+
+    void toastMsg(String msg) {
+        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
     }
 }
