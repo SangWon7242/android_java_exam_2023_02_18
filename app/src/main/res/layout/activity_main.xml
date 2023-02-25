@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:padding="10sp">
+    android:padding="10sp"
+    tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/activity_main__editTextNum1"
@@ -27,25 +27,25 @@
         android:orientation="horizontal">
 
         <Button
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:onClick="btnAddClicked"
             android:text="더하기" />
 
         <Button
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_weight="1"
             android:onClick="btnMinusClicked"
             android:text="빼기" />
 
         <Button
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_weight="1"
             android:onClick="btnClearClicked"
             android:text="지우기" />
     </LinearLayout>
