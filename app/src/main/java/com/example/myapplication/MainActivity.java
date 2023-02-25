@@ -23,14 +23,14 @@ public class MainActivity extends AppCompatActivity {
         textViewRs = findViewById(R.id.activity_main__textViewRs);
     }
 
-    public void btnAddClicked(View view) {
+    public boolean checkNumberInputs() {
         // 혹시나 있을지 모를 양옆의 공백제거
         editTextNum1.setText(editTextNum1.getText().toString().trim());
 
         if(editTextNum1.getText().toString().length() == 0) {
             toastMsg("숫자1을 입력해주세요.");
             editTextNum1.requestFocus();
-            return;
+            return false;
         }
 
         // 혹시나 있을지 모를 양옆의 공백제거
@@ -39,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
         if(editTextNum2.getText().toString().length() == 0) {
             toastMsg("숫자2를 입력해주세요.");
             editTextNum2.requestFocus();
+            return false;
+        }
+        
+        return true;
+    }
+    
+    public void btnAddClicked(View view) {
+        if(checkNumberInputs() == false) {
             return;
         }
 
@@ -50,21 +58,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnMinusClicked(View view) {
-        // 혹시나 있을지 모를 양옆의 공백제거
-        editTextNum1.setText(editTextNum1.getText().toString().trim());
-
-        if(editTextNum1.getText().toString().length() == 0) {
-            toastMsg("숫자1을 입력해주세요.");
-            editTextNum1.requestFocus();
-            return;
-        }
-
-        // 혹시나 있을지 모를 양옆의 공백제거
-        editTextNum2.setText(editTextNum2.getText().toString().trim());
-
-        if(editTextNum2.getText().toString().length() == 0) {
-            toastMsg("숫자2를 입력해주세요.");
-            editTextNum2.requestFocus();
+        if(checkNumberInputs() == false) {
             return;
         }
 
@@ -82,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         editTextNum1.setText("");
         editTextNum2.setText("");
+        toastMsg("결과 초기화");
         textViewRs.setText("결과");
     }
 
